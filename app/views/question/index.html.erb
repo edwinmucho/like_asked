@@ -1,0 +1,19 @@
+<h1>질문 받습니다!</h1>
+<p>질문을 입력하세요.</p>
+<form action='/question/show'>
+   아이디 :   <textarea name="id" rows="1" cols="30"></textarea>
+   <input type='checkbox' name='anony' value='anonymous'>익명
+   <br>
+   질문내용: <textarea name="content" rows="10" cols="30"></textarea><br>
+    <input type='submit' value='전송'>
+</form>
+<%if !session[:user_name].nil? %>
+<div>
+<hr>
+<% @questions.each do |q|%>
+이름 : <%=q.name%><br>
+질문내용 : <%=q.content%>
+<hr>
+<%end%>
+</div>
+<%end%>
